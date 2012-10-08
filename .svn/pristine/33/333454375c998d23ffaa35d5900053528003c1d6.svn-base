@@ -1,0 +1,52 @@
+using System;
+using UnityEngine;
+
+
+	public class Player:MGameObject
+	{
+		
+		private static Player singleton;
+		
+		public static Player getPlayer(){
+		if(singleton==null)
+				singleton=new Player();
+			return singleton;
+		
+		}
+		
+	public int speed=5;
+		
+		
+		
+	
+	public void Update(){
+		hadleInput ();
+	}
+
+	void hadleInput ()
+	{
+			Vector3 temp=this.transform.position;
+			
+				temp.z+=Input.GetAxisRaw("Vertical")*Time.deltaTime*speed;		
+				temp.x+=Input.GetAxisRaw("Horizontal")*Time.deltaTime*speed;
+		
+		if(temp.z>GameScene.getGameScene().gameScene.y&&temp.z<GameScene.getGameScene().gameScene.yMax
+			&&
+			temp.x>GameScene.getGameScene().gameScene.x&&temp.x<GameScene.getGameScene().gameScene.xMax)
+		{
+		
+			this.transform.position=temp;
+		}
+	
+	
+	
+	}
+	
+	
+	
+	public Player ()
+		{
+			
+		}
+}
+
