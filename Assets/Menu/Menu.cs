@@ -13,7 +13,7 @@ public class Menu:MonoBehaviour
 		
 		
 		void OnGUI () {
-       
+       		
     		Rect box=new Rect ((float)(Screen.width*0.75),0,(float)(Screen.width*0.25),(float)Screen.height);
 			GUI.Box(box,background);
 		
